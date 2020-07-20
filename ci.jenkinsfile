@@ -8,8 +8,8 @@ pipeline{
       steps{
       
            script{
-              mvnHome = tool "m2"
-              sh "${mvnHome/bin/mvn -v}"
+              mvnHome = tool "M2"
+             sh "${mvnHome}/bin/mvn -v"
          
          
          }
