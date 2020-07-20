@@ -1,6 +1,8 @@
 #!groovy
 
+@libary('jenkinslibary')_
 
+String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
 pipeline{
   agent { node { label "build-01"}}
@@ -10,18 +12,10 @@ pipeline{
       steps{
       
            script{
-              mvnHome = tool "M2"
-             sh "${mvnHome}/bin/mvn -v"     
+              build.Build(buildType, buildShell)    
          }
       }     
    }
-    stage("antbuild"){
-      steps{
-        script{
-          antHome = tool "ANT"
-          sh "${antHome}/bin/ant -v"
-        }
-      }
-    }
+ 
   }
 }
