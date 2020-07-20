@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline{
-  agent { node { lable "build-01"}}
+  agent { node { label "build-01"}}
   
   stages{
     stage("build"){
