@@ -1,6 +1,6 @@
 #!groovy
 
-@Libary('jenkinslibary')_
+@Library('jenkinslibrary')_
 
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
