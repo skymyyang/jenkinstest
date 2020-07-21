@@ -12,5 +12,16 @@ def Build(buildType, buildShell){
 
     buildHome = tool buildTools[buildType]
 
-    sh "${buildHome}/bin/${buildType} ${buildShell}"
+    if ("${buildType}" == "npm") {
+
+        sh """
+           export NODE_HOME=${buildHome}
+           export PATH=\$NODE_HOME/bin:\$PATH
+           ${buildHome}/bin/${buildType} ${buildShell}
+        """
+    } else{
+
+         sh "${buildHome}/bin/${buildType} ${buildShell}"
+    }
 }
+
